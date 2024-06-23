@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+#if os(iOS)
 public extension UIColor {
     
     /// Return a SwiftUI `Color` from a `UIColor`.
@@ -15,3 +16,12 @@ public extension UIColor {
         return Color(self)
     }
 }
+#else
+public extension NSColor {
+    
+    /// Return a SwiftUI `Color` from a `NSColor`.
+    var color: Color {
+        return Color(self)
+    }
+}
+#endif
